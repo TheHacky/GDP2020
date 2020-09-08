@@ -44,13 +44,25 @@ int WINAPI WinMain(
 	if (RegisterClass(&wc) == 0) return -10;
 
 	// 3. (optional) calcualte window rect
+	int width = GetSystemMetrics(SM_CXSCREEN);
+	int height = GetSystemMetrics(SM_CYSCREEN);
+	int halfWidth = width / 2;
+	int halfHeight = height / 2;
+	RECT rect = {0, 0, 640, 480};
+	rect.left = halfWidth - rect.right / 2;
+	rect.top = halfHeight - rect.bottom / 2;
+	rect.right += rect.left;
+	rect.bottom += rect.top;
+	DWORD style = WS_OVERLAPPEDWINDOW;
+	AdjustWindowRect(&rect, style, false);
+
 	// 4. create a window instance 
 	HWND hWnd = CreateWindow(
 		wc.lpszClassName, // class name
 		wc.lpszClassName, // window title
-		WS_OVERLAPPEDWINDOW, // window style (visual)
-		100, 100, // window position
-		640, 480, // window size
+		style, // window style (visual)
+		rect.left, rect.top, // window position
+		rect.right - rect.left, rect.bottom - rect.top, // window size
 		nullptr, // handle to parent window
 		nullptr, // handle to menu instance
 		hInstance, // handle to application instance
