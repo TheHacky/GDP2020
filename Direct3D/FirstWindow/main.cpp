@@ -3,7 +3,7 @@
 LRESULT CALLBACK WndProc(
 	HWND hWnd, // handle to window instance
 	UINT msg, // message type
-	WPARAM wParam, // main information (e.g. new size of window)
+	WPARAM wParam, // main information (e.g. virtual key code)
 	LPARAM lParam // additonal information (e.g. special key)
 )
 {
