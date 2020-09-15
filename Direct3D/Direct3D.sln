@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FirstWindow", "FirstWindow\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Direct3D", "Direct3D\Direct3D.vcxproj", "{BC6699F2-3CE9-4EB2-8C7C-BA397F162274}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PointerPointer", "PointerPointer\PointerPointer.vcxproj", "{18FB903D-6658-4A09-AB62-FB974F8B30B5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{BC6699F2-3CE9-4EB2-8C7C-BA397F162274}.Release|x64.Build.0 = Release|x64
 		{BC6699F2-3CE9-4EB2-8C7C-BA397F162274}.Release|x86.ActiveCfg = Release|Win32
 		{BC6699F2-3CE9-4EB2-8C7C-BA397F162274}.Release|x86.Build.0 = Release|Win32
+		{18FB903D-6658-4A09-AB62-FB974F8B30B5}.Debug|x64.ActiveCfg = Debug|x64
+		{18FB903D-6658-4A09-AB62-FB974F8B30B5}.Debug|x64.Build.0 = Debug|x64
+		{18FB903D-6658-4A09-AB62-FB974F8B30B5}.Debug|x86.ActiveCfg = Debug|Win32
+		{18FB903D-6658-4A09-AB62-FB974F8B30B5}.Debug|x86.Build.0 = Debug|Win32
+		{18FB903D-6658-4A09-AB62-FB974F8B30B5}.Release|x64.ActiveCfg = Release|x64
+		{18FB903D-6658-4A09-AB62-FB974F8B30B5}.Release|x64.Build.0 = Release|x64
+		{18FB903D-6658-4A09-AB62-FB974F8B30B5}.Release|x86.ActiveCfg = Release|Win32
+		{18FB903D-6658-4A09-AB62-FB974F8B30B5}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

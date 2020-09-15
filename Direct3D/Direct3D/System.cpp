@@ -82,7 +82,7 @@ bool System::createWindow()
 	wc.lpszMenuName = nullptr; // class name for menu class
 	wc.style = CS_HREDRAW | CS_VREDRAW | CS_OWNDC; // behaviour of window
 
-												   // Step 2: register window class
+	// Step 2: register window class
 	ATOM wID = RegisterClass(&wc);
 	if (wID <= 0) return false;
 
@@ -166,11 +166,11 @@ void System::updateHighFrequencyTimer()
 	_timeSinceLastFrameUpdate += _deltaTime;
 	if (_timeSinceLastFrameUpdate >= 1.0f)
 	{
-		OutputDebugString((TEXT("fps: ") + std::to_wstring(_frames) + TEXT("\n")).c_str());
+		OutputDebugString((TEXT("fps (commulated): ") + CONVERT(_frames) + TEXT("\n")).c_str());
 		_frames = 0;
 		_timeSinceLastFrameUpdate -= 1.0f;
 	}
 
-	OutputDebugString((std::to_wstring(_deltaTime) + TEXT("\n")).c_str());
-	OutputDebugString((TEXT("fps: ") + std::to_wstring(1.0f / _deltaTime) + TEXT("\n")).c_str());
+	/*OutputDebugString((CONVERT(_deltaTime) + TEXT("\n")).c_str());
+	OutputDebugString((TEXT("fps (extrapolated): ") + CONVERT(1.0f / _deltaTime) + TEXT("\n")).c_str());*/
 }

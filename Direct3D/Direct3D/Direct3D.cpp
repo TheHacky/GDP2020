@@ -82,9 +82,9 @@ bool Direct3D::init(UINT screenWidth, UINT screenHeight, bool vSyncEnabled, HWND
 
 	swapChainDesc.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
 	swapChainDesc.OutputWindow = hWnd;
-	swapChainDesc.SampleDesc.Count = 1;
+	swapChainDesc.SampleDesc.Count = 1; // IMPORTANT: set up to at least 1
 	swapChainDesc.SwapEffect = DXGI_SWAP_EFFECT_DISCARD;
-	swapChainDesc.Windowed = true;
+	swapChainDesc.Windowed = true; // exclusive fullscreen or not
 
 	D3D_FEATURE_LEVEL featureLevels[1] = { D3D_FEATURE_LEVEL_10_1 };
 
@@ -99,6 +99,7 @@ bool Direct3D::init(UINT screenWidth, UINT screenHeight, bool vSyncEnabled, HWND
 		nullptr, // highest feature level from pFeatureLevels our graphic card support
 		&_pDeviceContext
 		);
+
 	if (FAILED(hr))
 	{
 #if DEBUG
@@ -153,7 +154,7 @@ bool Direct3D::init(UINT screenWidth, UINT screenHeight, bool vSyncEnabled, HWND
 	if (FAILED(hr))
 		return false;
 
-	_pDeviceContext->OMSetRenderTargets(1, &_pRenderTargetView, nullptr);
+	_pDeviceContext->OMSetRenderTargets(1, &_pRenderTargetView, _pDepthStencilView);
 #pragma endregion
 
 #pragma region create rasterizer state
@@ -186,10 +187,15 @@ bool Direct3D::init(UINT screenWidth, UINT screenHeight, bool vSyncEnabled, HWND
 
 void Direct3D::beginScene(FLOAT red, FLOAT green, FLOAT blue)
 {
+	// clear the backbuffer
+	FLOAT color[4] = { red, green, blue, 1.0f };
+	_pDeviceContext->ClearRenderTargetView(_pRenderTargetView, color);
 }
 
 void Direct3D::endScene()
 {
+	// swap front- with the backbuffer
+	_pSwapChain->Present(_vSyncEnabled ? 1 : 0, 0); // 0 - no sync, 1-4 1:x sync 
 }
 
 void Direct3D::deInit()

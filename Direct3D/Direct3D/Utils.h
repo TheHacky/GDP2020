@@ -1,5 +1,11 @@
 #pragma once
 
+#ifdef UNICODE
+#define CONVERT(value) std::to_wstring(value)
+#else
+#define CONVERT(value) std::to_string(value)
+#endif
+
 #ifdef _DEBUG 
 #include <Windows.h>
 #define ErrorMsg(handle, msg) if (FAILED(handle)) \
