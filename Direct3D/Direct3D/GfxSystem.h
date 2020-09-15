@@ -1,5 +1,6 @@
 #pragma once
 #include "Direct3D.h"
+#include "AMesh.h"
 
 class GfxSystem
 {
@@ -11,5 +12,6 @@ public:
 
 private:
 	Direct3D*	_pD3D = nullptr;
+	AMesh* _pMesh = nullptr;
 };
 

@@ -10,15 +10,15 @@ Triangle::Triangle()
 
 bool Triangle::createVertexBuffer(ID3D11Device *pDevice)
 {
-	return true;
-
-	/*float halfHeight = (FLOAT)sqrt(0.75) * 0.5f;
+	float halfHeight = (FLOAT)sqrt(0.75) * 0.5f;
 	Vertex vertices[3] =
 	{
-		
-	};*/
+		Vertex(0.0f, halfHeight, 0.0f), // top
+		Vertex(-0.5f, -halfHeight, 0.0f), // left-bottom
+		Vertex(0.5f, -halfHeight, 0.0f), // right-bottom
+	};
 
-	/*D3D11_BUFFER_DESC bufferDesc = {};
+	D3D11_BUFFER_DESC bufferDesc = {};
 	bufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
 	bufferDesc.ByteWidth = _vertexStride * _vertexCount;
 
@@ -27,19 +27,19 @@ bool Triangle::createVertexBuffer(ID3D11Device *pDevice)
 
 	HRESULT hr = pDevice->CreateBuffer(&bufferDesc, &initialData, &_pVertexBuffer);
 
-	return SUCCEEDED(hr);*/
+	return SUCCEEDED(hr);
 }
 
 bool Triangle::createIndexBuffer(ID3D11Device *pDevice)
 {
-	return true;
-
-	/*UINT indices[3] =
+	UINT indices[3] =
 	{
-		
-	};*/
+		0, 1, 2
+		// 1, 2, 0
+		// 2, 0, 1
+	};
 
-	/*D3D11_BUFFER_DESC bufferDesc = {};
+	D3D11_BUFFER_DESC bufferDesc = {};
 	bufferDesc.BindFlags = D3D11_BIND_INDEX_BUFFER;
 	bufferDesc.ByteWidth = sizeof(UINT) * _indexCount;
 
@@ -48,5 +48,5 @@ bool Triangle::createIndexBuffer(ID3D11Device *pDevice)
 
 	HRESULT hr = pDevice->CreateBuffer(&bufferDesc, &initialData, &_pIndexBuffer);
 
-	return SUCCEEDED(hr);*/
+	return SUCCEEDED(hr);
 }

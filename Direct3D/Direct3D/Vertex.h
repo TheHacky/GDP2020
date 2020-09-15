@@ -3,6 +3,7 @@
 
 using namespace DirectX;
 
+// SIMD - Single Instruction Multiple Data
 struct Vertex
 {
 	XMFLOAT3 position;

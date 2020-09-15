@@ -22,6 +22,7 @@
 #define ErrorMsg(handle, msg)
 #endif // _DEBUG
 
+// COM - Component Object Model
 template<typename T> ULONG safeRelease(T* &obj)
 {
 	ULONG refCount = 0;

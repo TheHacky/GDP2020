@@ -15,6 +15,7 @@ void AMesh::update(FLOAT dt)
 
 void AMesh::render(ID3D11DeviceContext* pDeviceContext)
 {
+	// IA - Input Assembler
 	UINT offset = 0;
 	pDeviceContext->IASetVertexBuffers(0, 1, &_pVertexBuffer, &_vertexStride, &offset);
 	pDeviceContext->IASetIndexBuffer(_pIndexBuffer, DXGI_FORMAT_R32_UINT, 0);
