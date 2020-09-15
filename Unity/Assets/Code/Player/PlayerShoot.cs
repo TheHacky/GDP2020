@@ -9,6 +9,8 @@ namespace Code.Player
         [SerializeField] private Rigidbody _bulletPrefab = null;
         [SerializeField] private float _shootForce = 10.0f;
 
+        [SerializeField] private AudioSource _shootAudio = null;
+
         private Rigidbody[] _bullets = new Rigidbody[50];
 
         private void Start()
@@ -48,6 +50,11 @@ namespace Code.Player
                     
                     break;
                 }
+                
+                // play shoot sound
+                _shootAudio.Play(); // play audio clip set up in audio source
+                // _shootAudio.PlayDelayed(1.0f); // play audio clip delayed set up in audio source
+                // _shootAudio.PlayOneShot(_shootClip); // play audio clip one time
             }
         }
     }

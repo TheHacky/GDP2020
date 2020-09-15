@@ -124,3 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lifetime: 3
+  _explosionPrefab: {fileID: 8639670387667015846, guid: 2e9f2b1f78f9643a6a2ab0e91aeb8ce3,
+    type: 3}
+  _explosionSound: {fileID: 8300000, guid: 5a0a8477f0aae4cf6bc558f4d555afe1, type: 3}
+  _audioSource: {fileID: 0}
