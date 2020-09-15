@@ -8,10 +8,16 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float _speed = 10.0f;
     [SerializeField] private float _rotationSpeed = 60.0f;
+    [SerializeField] private float _maximumCameraAngle = 30.0f;
+    [SerializeField] private float _gravity = -10.0f;
+    [SerializeField] private float _jumpForce = 20.0f;
 
     private CharacterController _controller = null;
     private Camera _camera = null;
-    
+    private float _actualCameraRotation = 0.0f;
+    private float _ySpeed = 0.0f;
+    private bool _isJumping = false;
+
     private void Awake()
     {
         _controller = GetComponent<CharacterController>();
@@ -20,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void FixedUpdate()
@@ -28,16 +35,34 @@ public class PlayerMovement : MonoBehaviour
         float v = Input.GetAxis("Vertical");
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = Input.GetAxis("Mouse Y");
-        
+
         transform.Rotate(Vector3.up, mouseX * _rotationSpeed * Time.deltaTime);
-        _camera.transform.Rotate(Vector3.right, mouseY * _rotationSpeed * Time.deltaTime);
-        
-        Vector3 move = new Vector3(h, 0.0f, v) * _speed;
-        _controller.SimpleMove(transform.TransformDirection(move));
+
+        float rot = mouseY * _rotationSpeed * Time.deltaTime;
+        if (Mathf.Abs(_actualCameraRotation + rot) < _maximumCameraAngle)
+        {
+            _camera.transform.Rotate(Vector3.right, rot);
+            _actualCameraRotation += rot;
+        }
+
+        if (_controller.isGrounded)
+        {
+            _ySpeed = _isJumping ? _jumpForce : 0.0f;
+        }
+        else
+        {
+            _ySpeed += _gravity * Time.deltaTime;
+        }
+
+        _isJumping = false;
+
+        Vector3 move = new Vector3(h, _ySpeed, v) * (_speed * Time.deltaTime);
+        _controller.Move(transform.TransformDirection(move));
     }
 
     private void Update()
     {
+        _isJumping = _isJumping || Input.GetButtonDown("Jump");
     }
 
     private void LateUpdate()
