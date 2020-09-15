@@ -142,16 +142,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AMesh.cpp" />
     <ClCompile Include="Direct3D.cpp" />
     <ClCompile Include="GfxSystem.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Quad.cpp" />
     <ClCompile Include="System.cpp" />
+    <ClCompile Include="Triangle.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AMesh.h" />
     <ClInclude Include="Direct3D.h" />
     <ClInclude Include="GfxSystem.h" />
+    <ClInclude Include="Quad.h" />
     <ClInclude Include="System.h" />
+    <ClInclude Include="Triangle.h" />
     <ClInclude Include="Utils.h" />
+    <ClInclude Include="Vertex.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
