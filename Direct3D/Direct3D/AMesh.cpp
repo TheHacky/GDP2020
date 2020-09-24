@@ -3,7 +3,8 @@
 
 bool AMesh::init(ID3D11Device* pDevice)
 {
-	if (!createVertexBuffer(pDevice) || !createIndexBuffer(pDevice)) return false;
+	createMesh();
+	if (!initVertexBuffer(pDevice) || !initIndexBuffer(pDevice)) return false;
 
 	return true;
 }
@@ -26,4 +27,44 @@ void AMesh::deInit()
 {
 	safeRelease<ID3D11Buffer>(_pVertexBuffer);
 	safeRelease<ID3D11Buffer>(_pIndexBuffer);
+	
+	if (_pVertices != nullptr)
+	{
+		delete[] _pVertices;
+		_pVertices = nullptr;
+	}
+
+	if (_pIndices != nullptr)
+	{
+		delete[] _pIndices;
+		_pIndices = nullptr;
+	}
+}
+
+bool AMesh::initVertexBuffer(ID3D11Device* pDevice)
+{
+	D3D11_BUFFER_DESC bufferDesc = {};
+	bufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
+	bufferDesc.ByteWidth = _vertexStride * _vertexCount;
+
+	D3D11_SUBRESOURCE_DATA initialData = {};
+	initialData.pSysMem = _pVertices;
+
+	HRESULT hr = pDevice->CreateBuffer(&bufferDesc, &initialData, &_pVertexBuffer);
+
+	return SUCCEEDED(hr);
+}
+
+bool AMesh::initIndexBuffer(ID3D11Device* pDevice)
+{
+	D3D11_BUFFER_DESC bufferDesc = {};
+	bufferDesc.BindFlags = D3D11_BIND_INDEX_BUFFER;
+	bufferDesc.ByteWidth = sizeof(UINT) * _indexCount;
+
+	D3D11_SUBRESOURCE_DATA initialData = {};
+	initialData.pSysMem = _pIndices;
+
+	HRESULT hr = pDevice->CreateBuffer(&bufferDesc, &initialData, &_pIndexBuffer);
+
+	return SUCCEEDED(hr);
 }

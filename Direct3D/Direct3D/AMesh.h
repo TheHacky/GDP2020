@@ -1,6 +1,7 @@
 #pragma once
 #include <d3d11.h>
 #include <DirectXMath.h>
+#include "Vertex.h"
 
 using namespace DirectX;
 
@@ -15,12 +16,15 @@ public:
 	UINT getIndexCount() { return _indexCount; }
 
 protected:
-	virtual bool createVertexBuffer(ID3D11Device*) = 0;
-	virtual bool createIndexBuffer(ID3D11Device*) = 0;
+	bool initVertexBuffer(ID3D11Device*);
+	bool initIndexBuffer(ID3D11Device*);
+	virtual void createMesh() = 0;
 
 	// mesh variables
 	ID3D11Buffer*	_pVertexBuffer = nullptr;
 	ID3D11Buffer*	_pIndexBuffer = nullptr;
+	Vertex*			_pVertices = nullptr;
+	UINT*			_pIndices = nullptr;
 	UINT			_vertexCount = 0;
 	UINT			_indexCount = 0;
 	UINT			_vertexStride = 0;

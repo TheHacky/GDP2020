@@ -3,11 +3,14 @@
 
 Quad::Quad()
 {
+	_vertexStride = sizeof(Vertex);
+	_vertexCount = 4;
+	_indexCount = 6;
 }
 
-bool Quad::createVertexBuffer(ID3D11Device *pDevice)
+void Quad::createMesh()
 {
-	Vertex vertices[4] = 
+	_pVertices = new Vertex[_vertexCount]
 	{
 		Vertex(-0.5f, 0.5f, 0.0f), // left-top
 		Vertex(0.5f, 0.5f, 0.0f), // right-top
@@ -15,16 +18,9 @@ bool Quad::createVertexBuffer(ID3D11Device *pDevice)
 		Vertex(-0.5f, -0.5f, 0.0f), // left-bottom
 	};
 
-	return true;
-}
-
-bool Quad::createIndexBuffer(ID3D11Device *pDevice)
-{
-	UINT indices[6] =
+	_pIndices = new UINT[_indexCount]
 	{
 		0, 1, 2,
-		0, 2, 3
+		0, 2, 3,
 	};
-
-	return true;
 }

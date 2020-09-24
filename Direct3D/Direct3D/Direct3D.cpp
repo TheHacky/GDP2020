@@ -160,7 +160,8 @@ bool Direct3D::init(UINT screenWidth, UINT screenHeight, bool vSyncEnabled, HWND
 #pragma region create rasterizer state
 	D3D11_RASTERIZER_DESC rasterizerDesc = {};
 	rasterizerDesc.FillMode = D3D11_FILL_SOLID;
-	rasterizerDesc.CullMode = D3D11_CULL_BACK;
+	rasterizerDesc.CullMode = D3D11_CULL_BACK; // set to BACK to save average of 50% faces to drawn
+	rasterizerDesc.FrontCounterClockwise = false;
 	rasterizerDesc.AntialiasedLineEnable = true;
 
 	hr = _pDevice->CreateRasterizerState(&rasterizerDesc, &_pRasterizerState);
@@ -190,6 +191,7 @@ void Direct3D::beginScene(FLOAT red, FLOAT green, FLOAT blue)
 	// clear the backbuffer
 	FLOAT color[4] = { red, green, blue, 1.0f };
 	_pDeviceContext->ClearRenderTargetView(_pRenderTargetView, color);
+	_pDeviceContext->ClearDepthStencilView(_pDepthStencilView, D3D11_CLEAR_DEPTH, 1.0f, 0xFFFFFF);
 }
 
 void Direct3D::endScene()
