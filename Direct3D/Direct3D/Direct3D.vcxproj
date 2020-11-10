@@ -144,6 +144,7 @@
   <ItemGroup>
     <ClCompile Include="AMesh.cpp" />
     <ClCompile Include="AShader.cpp" />
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="ColorShader.cpp" />
     <ClCompile Include="Direct3D.cpp" />
     <ClCompile Include="GfxSystem.cpp" />
@@ -155,6 +156,7 @@
   <ItemGroup>
     <ClInclude Include="AMesh.h" />
     <ClInclude Include="AShader.h" />
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="ColorShader.h" />
     <ClInclude Include="Direct3D.h" />
     <ClInclude Include="GfxSystem.h" />

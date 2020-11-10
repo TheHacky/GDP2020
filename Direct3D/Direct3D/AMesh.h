@@ -28,4 +28,7 @@ protected:
 	UINT			_vertexCount = 0;
 	UINT			_indexCount = 0;
 	UINT			_vertexStride = 0;
+
+	// world matrix
+	XMFLOAT4X4		_worldMatrix = {};
 };

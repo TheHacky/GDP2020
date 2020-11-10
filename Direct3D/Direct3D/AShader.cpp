@@ -4,6 +4,10 @@
 
 bool AShader::init(ID3D11Device* pDevice)
 {
+	XMStoreFloat4x4(&_worldMatrix, XMMatrixIdentity());
+	XMStoreFloat4x4(&_viewMatrix, XMMatrixIdentity());
+	XMStoreFloat4x4(&_projectionMatrix, XMMatrixIdentity());
+
 	if (!initVertexShader(pDevice) || !initPixelShader(pDevice)) return false;
 
 	return true;

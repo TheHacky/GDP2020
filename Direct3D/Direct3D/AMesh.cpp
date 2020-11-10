@@ -11,7 +11,11 @@ bool AMesh::init(ID3D11Device* pDevice)
 
 void AMesh::update(FLOAT dt)
 {
-	
+	XMMATRIX matrix = XMMatrixScaling(1.0f, 1.0f, 1.0f) *
+	XMMatrixRotationRollPitchYaw(0.0f, 0.0f, 0.0f) *
+	XMMatrixTranslation(0.0f, 0.0f, 0.0f);
+	XMStoreFloat4x4(&_worldMatrix, matrix);
+
 }
 
 void AMesh::render(ID3D11DeviceContext* pDeviceContext)
