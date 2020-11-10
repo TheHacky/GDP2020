@@ -1,5 +1,11 @@
-float4 main(float4 color : COLOR) : SV_TARGET
+struct PixelInput
 {
-	//return color;
-	return (1.0f, 1.0f, 1.0f, 1.0f);
+    float4 position : SV_POSITION;
+    float4 color : COLOR;
+};
+
+float4 main(PixelInput IN) : SV_TARGET
+{
+	return IN.color;
+	//return (1.0f, 1.0f, 1.0f, 1.0f);
 }

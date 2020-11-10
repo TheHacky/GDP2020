@@ -2,6 +2,7 @@
 #include "Direct3D.h"
 #include "AMesh.h"
 #include "AShader.h"
+#include "Camera.h"
 
 class GfxSystem
 {
@@ -16,5 +17,6 @@ private:
 	AMesh*		_pMesh = nullptr;
 	AMesh*		_pMesh2 = nullptr;
 	AShader*	_pShader = nullptr;
+	Camera*		_pCamera = nullptr;
 };
 

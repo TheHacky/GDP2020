@@ -33,8 +33,8 @@ private:
 
 	// window variables
 	HWND	m_hWnd = nullptr;
-	UINT	_screenWidth = 640;
-	UINT	_screenHeight = 480;
+	UINT	_screenWidth = 1024;
+	UINT	_screenHeight = 768;
 
 	// gfx variables
 	GfxSystem*	m_pGfx = nullptr;

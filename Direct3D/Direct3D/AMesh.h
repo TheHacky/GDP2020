@@ -14,6 +14,8 @@ public:
 	virtual void deInit();
 
 	UINT getIndexCount() { return _indexCount; }
+	XMFLOAT4X4 getWorldMatrix() { return _worldMatrix; }
+	void setPosition(float x, float y, float z) { _position = { x, y, z }; }
 
 protected:
 	bool initVertexBuffer(ID3D11Device*);
@@ -31,4 +33,5 @@ protected:
 
 	// world matrix
 	XMFLOAT4X4		_worldMatrix = {};
+	XMFLOAT3		_position = {};
 };
