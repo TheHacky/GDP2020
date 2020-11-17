@@ -11,27 +11,27 @@ bool AMesh::init(ID3D11Device* pDevice)
 
 void AMesh::update(FLOAT dt)
 {
-	//static float scaleY = 1.0f;
-	//static float dir = 1.0f;
-	//static float rotZ = 0.0f;
-	//static float rotZ2 = 0.0f;
-	//scaleY += dt * dir * 0.25f;
-	////if (scaleY > 3.0f) scaleY = -3.0f;
-	//if (scaleY > 1.0f || scaleY < 0.0f)
-	//{
-	//	dir *= -1.0f;
-	//	scaleY = scaleY > 1.0f ? 1.0f : scaleY < 0.0f ? 0.0f : scaleY;
-	//}
-	//rotZ += dt * 0.1f;
-	//rotZ2 -= dt * 0.25f;
+	static float scaleY = 1.0f;
+	static float dir = 1.0f;
+	static float rotZ = 0.0f;
+	static float rotZ2 = 0.0f;
+	scaleY += dt * dir * 0.25f;
+	//if (scaleY > 3.0f) scaleY = -3.0f;
+	if (scaleY > 1.0f || scaleY < 0.0f)
+	{
+		dir *= -1.0f;
+		scaleY = scaleY > 1.0f ? 1.0f : scaleY < 0.0f ? 0.0f : scaleY;
+	}
+	rotZ += dt * 0.1f;
+	rotZ2 -= dt * 0.25f;
+
+	//XMMATRIX matrix = XMMatrixScaling(1.0f, 1.0f, 1.0f) *
+	//	XMMatrixRotationRollPitchYaw(0.0f, 0.0f, 0.0f) *
+	//	XMMatrixTranslation(_position.x, _position.y, _position.z);
 
 	XMMATRIX matrix = XMMatrixScaling(1.0f, 1.0f, 1.0f) *
-		XMMatrixRotationRollPitchYaw(0.0f, 0.0f, 0.0f) *
-		XMMatrixTranslation(_position.x, _position.y, _position.z);
-
-	//XMMATRIX matrix = XMMatrixScaling(1.0f, scaleY, 1.0f) *
-	//	XMMatrixRotationRollPitchYaw(0.0f, 0.0f, rotZ) *
-	//	XMMatrixTranslation(0.0f, 0.0f, 0.0f);
+		XMMatrixRotationRollPitchYaw(0.0f, rotZ2, rotZ) *
+		XMMatrixTranslation(0.0f, 0.0f, 0.0f);
 
 	//XMMATRIX matrix = XMMatrixRotationRollPitchYaw(0.0f, 0.0f, XM_PIDIV4) *
 	//	XMMatrixTranslation(0.0f, 0.5f, 0.0f) *

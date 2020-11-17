@@ -5,6 +5,7 @@
 #include "Triangle.h"
 #include "Quad.h"
 #include "ColorShader.h"
+#include "Cube.h"
 
 using namespace std;
 
@@ -13,7 +14,7 @@ bool GfxSystem::init(UINT screenWidth, UINT screenHeight, HWND hWnd)
 	_pD3D = new Direct3D();
 	if (!_pD3D->init(screenWidth, screenHeight, false, hWnd)) return false;
 
-	_pMesh = new Triangle();
+	_pMesh = new Cube();
 	if (!_pMesh->init(_pD3D->getDevice())) return false;
 
 	_pMesh2 = new Quad();
@@ -49,9 +50,9 @@ void GfxSystem::renderFrame()
 	_pShader->setMatrices(_pMesh->getWorldMatrix(), _pCamera->getViewMatrix(), _pCamera->getProjectionMatrix());
 	_pShader->render(_pD3D->getDeviceContext(), _pMesh->getIndexCount());
 
-	_pMesh2->render(_pD3D->getDeviceContext());
-	_pShader->setMatrices(_pMesh2->getWorldMatrix(), _pCamera->getViewMatrix(), _pCamera->getProjectionMatrix());
-	_pShader->render(_pD3D->getDeviceContext(), _pMesh2->getIndexCount());
+	//_pMesh2->render(_pD3D->getDeviceContext());
+	//_pShader->setMatrices(_pMesh2->getWorldMatrix(), _pCamera->getViewMatrix(), _pCamera->getProjectionMatrix());
+	//_pShader->render(_pD3D->getDeviceContext(), _pMesh2->getIndexCount());
 
 	// present scene
 	_pD3D->endScene();

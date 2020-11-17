@@ -146,6 +146,7 @@
     <ClCompile Include="AShader.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="ColorShader.cpp" />
+    <ClCompile Include="Cube.cpp" />
     <ClCompile Include="Direct3D.cpp" />
     <ClCompile Include="GfxSystem.cpp" />
     <ClCompile Include="main.cpp" />
@@ -158,6 +159,7 @@
     <ClInclude Include="AShader.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="ColorShader.h" />
+    <ClInclude Include="Cube.h" />
     <ClInclude Include="Direct3D.h" />
     <ClInclude Include="GfxSystem.h" />
     <ClInclude Include="Quad.h" />
