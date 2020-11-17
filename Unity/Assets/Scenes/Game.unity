@@ -160,6 +160,7 @@ MonoBehaviour:
   _maximumCameraAngle: 30
   _gravity: -10
   _jumpForce: 2
+  _cameraReference: {fileID: 11400000, guid: 17e9b745bc2b54061b15517dc28eb6cf, type: 2}
 --- !u!136 &31450256
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5641,6 +5642,8 @@ MonoBehaviour:
   _maxHealth: 100
   _damage: 30
   _healthBarFilling: {fileID: 177993170}
+  _healthBarCanvas: {fileID: 650870171}
+  _camera: {fileID: 11400000, guid: 17e9b745bc2b54061b15517dc28eb6cf, type: 2}
 --- !u!136 &1373945286
 CapsuleCollider:
   m_ObjectHideFlags: 0

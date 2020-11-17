@@ -11,12 +11,12 @@ NavMeshProjectSettings:
     cost: 1
   - name: Jump
     cost: 2
-  - name: 
-    cost: 1
-  - name: 
-    cost: 1
-  - name: 
-    cost: 1
+  - name: More1
+    cost: 5
+  - name: More2
+    cost: 10
+  - name: More3
+    cost: 0.5
   - name: 
     cost: 1
   - name: 

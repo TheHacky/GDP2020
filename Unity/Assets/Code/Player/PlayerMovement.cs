@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Code.Data;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
@@ -11,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _maximumCameraAngle = 30.0f;
     [SerializeField] private float _gravity = -10.0f;
     [SerializeField] private float _jumpForce = 20.0f;
+    [SerializeField] private CameraReference _cameraReference = null;
 
     private CharacterController _controller = null;
     private Camera _camera = null;
@@ -22,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _controller = GetComponent<CharacterController>();
         _camera = GetComponentInChildren<Camera>();
+        _cameraReference.value = _camera;
     }
 
     private void Start()
