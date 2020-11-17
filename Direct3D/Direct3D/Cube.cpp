@@ -2,26 +2,26 @@
 
 Cube::Cube()
 {
-	_vertexStride = sizeof(Vertex);
+	_vertexStride = sizeof(VertexTex);
 	_vertexCount = 8;
 	_indexCount = 36;
 }
 
 void Cube::createMesh()
 {
-	_pVertices = new Vertex[_vertexCount]
+	_pVertices = new VertexTex[_vertexCount]
 	{
 		// front
-		Vertex(-0.5f,  0.5f, -0.5f, 1.0f, 0.0f, 1.0f), // left-top
-		Vertex( 0.5f,  0.5f, -0.5f, 1.0f, 1.0f, 0.0f), // right-top
-		Vertex( 0.5f, -0.5f, -0.5f, 0.0f, 1.0f, 1.0f), // right-bottom
-		Vertex(-0.5f, -0.5f, -0.5f, 1.0f, 1.0f, 1.0f), // left-bottom
+		VertexTex(-0.5f,  0.5f, -0.5f, 0.0f, 0.0f), // left-top
+		VertexTex(0.5f,  0.5f, -0.5f, 1.0f, 0.0f), // right-top
+		VertexTex(0.5f, -0.5f, -0.5f, 1.0f, 1.0f), // right-bottom
+		VertexTex(-0.5f, -0.5f, -0.5f, 0.0f, 1.0f), // left-bottom
 
 		// back
-		Vertex( 0.5f,  0.5f,  0.5f, 1.0f, 1.0f, 0.0f), // left-top
-		Vertex(-0.5f,  0.5f,  0.5f, 1.0f, 0.0f, 1.0f), // right-top
-		Vertex(-0.5f, -0.5f,  0.5f, 1.0f, 1.0f, 1.0f), // right-bottom
-		Vertex( 0.5f, -0.5f,  0.5f, 0.0f, 1.0f, 1.0f), // left-bottom
+		VertexTex( 0.5f,  0.5f,  0.5f, 0.0f, 0.0f), // left-top
+		VertexTex(-0.5f,  0.5f,  0.5f, 1.0f, 0.0f), // right-top
+		VertexTex(-0.5f, -0.5f,  0.5f, 1.0f, 1.0f), // right-bottom
+		VertexTex(0.5f, -0.5f,  0.5f, 0.0f, 1.0f), // left-bottom
 
 	};
 

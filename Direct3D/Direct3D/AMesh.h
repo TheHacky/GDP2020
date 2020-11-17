@@ -25,7 +25,7 @@ protected:
 	// mesh variables
 	ID3D11Buffer*	_pVertexBuffer = nullptr;
 	ID3D11Buffer*	_pIndexBuffer = nullptr;
-	Vertex*			_pVertices = nullptr;
+	void*			_pVertices = nullptr;
 	UINT*			_pIndices = nullptr;
 	UINT			_vertexCount = 0;
 	UINT			_indexCount = 0;

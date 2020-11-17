@@ -3,19 +3,19 @@
 
 Quad::Quad()
 {
-	_vertexStride = sizeof(Vertex);
+	_vertexStride = sizeof(VertexTex);
 	_vertexCount = 4;
 	_indexCount = 6;
 }
 
 void Quad::createMesh()
 {
-	_pVertices = new Vertex[_vertexCount]
+	_pVertices = new VertexTex[_vertexCount]
 	{
-		Vertex(-0.5f, 0.5f, 0.0f, 1.0f, 0.0f, 1.0f), // left-top
-		Vertex(0.5f, 0.5f, 0.0f, 1.0f, 1.0f, 0.0f), // right-top
-		Vertex(0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 1.0f), // right-bottom
-		Vertex(-0.5f, -0.5f, 0.0f, 1.0f, 1.0f, 1.0f), // left-bottom
+		VertexTex(-0.5f,  0.5f, 0.0f, 0.0f, 0.0f), // left-top
+		VertexTex( 0.5f,  0.5f, 0.0f, 1.0f, 0.0f), // right-top
+		VertexTex( 0.5f, -0.5f, 0.0f, 1.0f, 1.0f), // right-bottom
+		VertexTex(-0.5f, -0.5f, 0.0f, 0.0f, 1.0f), // left-bottom
 	};
 
 	_pIndices = new UINT[_indexCount]
