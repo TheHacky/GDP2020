@@ -149,6 +149,7 @@
     <ClCompile Include="Cube.cpp" />
     <ClCompile Include="Direct3D.cpp" />
     <ClCompile Include="GfxSystem.cpp" />
+    <ClCompile Include="LightingShader.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Quad.cpp" />
     <ClCompile Include="System.cpp" />
@@ -163,6 +164,7 @@
     <ClInclude Include="Cube.h" />
     <ClInclude Include="Direct3D.h" />
     <ClInclude Include="GfxSystem.h" />
+    <ClInclude Include="LightingShader.h" />
     <ClInclude Include="Quad.h" />
     <ClInclude Include="stb_image.h" />
     <ClInclude Include="System.h" />
@@ -178,6 +180,14 @@
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">4.0</ShaderModel>
     </FxCompile>
     <FxCompile Include="ColorVertexShader.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">4.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="LightingPixelShader.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">4.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="LightingVertexShader.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">4.0</ShaderModel>
     </FxCompile>

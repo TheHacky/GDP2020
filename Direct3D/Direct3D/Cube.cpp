@@ -2,50 +2,50 @@
 
 Cube::Cube()
 {
-	_vertexStride = sizeof(VertexTex);
+	_vertexStride = sizeof(VertexTexNormal);
 	_vertexCount = 24;
 	_indexCount = 36;
 }
 
 void Cube::createMesh()
 {
-	_pVertices = new VertexTex[_vertexCount]
+	_pVertices = new VertexTexNormal[_vertexCount]
 	{
 		// front
-		VertexTex(-0.5f,  0.5f, -0.5f, 0.0f, 0.0f), // left-top
-		VertexTex(0.5f,  0.5f, -0.5f, 1.0f, 0.0f), // right-top
-		VertexTex(0.5f, -0.5f, -0.5f, 1.0f, 1.0f), // right-bottom
-		VertexTex(-0.5f, -0.5f, -0.5f, 0.0f, 1.0f), // left-bottom
-
-		// back
-		VertexTex( 0.5f,  0.5f,  0.5f, 0.0f, 0.0f), // left-top
-		VertexTex(-0.5f,  0.5f,  0.5f, 1.0f, 0.0f), // right-top
-		VertexTex(-0.5f, -0.5f,  0.5f, 1.0f, 1.0f), // right-bottom
-		VertexTex( 0.5f, -0.5f,  0.5f, 0.0f, 1.0f), // left-bottom
-
-		// left
-		VertexTex(-0.5f,  0.5f,  0.5f, 0.0f, 0.0f), // right-top
-		VertexTex(-0.5f,  0.5f, -0.5f, 1.0f, 0.0f), // left-top
-		VertexTex(-0.5f, -0.5f, -0.5f, 1.0f, 1.0f), // left-bottom
-		VertexTex(-0.5f, -0.5f,  0.5f, 0.0f, 1.0f), // right-bottom
-
+		VertexTexNormal(-0.5f,  0.5f, -0.5f, 0.0f, 0.0f, 0.0f, 0.0f, -1.0f), // left-top
+		VertexTexNormal( 0.5f,  0.5f, -0.5f, 1.0f, 0.0f, 0.0f, 0.0f, -1.0f), // right-top
+		VertexTexNormal( 0.5f, -0.5f, -0.5f, 1.0f, 1.0f, 0.0f, 0.0f, -1.0f), // right-bottom
+		VertexTexNormal(-0.5f, -0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f, -1.0f), // left-bottom
+				 
+		// back	 
+		VertexTexNormal( 0.5f,  0.5f,  0.5f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f), // left-top
+		VertexTexNormal(-0.5f,  0.5f,  0.5f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f), // right-top
+		VertexTexNormal(-0.5f, -0.5f,  0.5f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f), // right-bottom
+		VertexTexNormal( 0.5f, -0.5f,  0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f), // left-bottom
+				 
+		// left	 
+		VertexTexNormal(-0.5f,  0.5f,  0.5f, 0.0f, 0.0f, -1.0f, 0.0f, 0.0f), // right-top
+		VertexTexNormal(-0.5f,  0.5f, -0.5f, 1.0f, 0.0f, -1.0f, 0.0f, 0.0f), // left-top
+		VertexTexNormal(-0.5f, -0.5f, -0.5f, 1.0f, 1.0f, -1.0f, 0.0f, 0.0f), // left-bottom
+		VertexTexNormal(-0.5f, -0.5f,  0.5f, 0.0f, 1.0f, -1.0f, 0.0f, 0.0f), // right-bottom
+				 
 		// right
-		VertexTex(0.5f,  0.5f, -0.5f, 0.0f, 0.0f), // right-top
-		VertexTex(0.5f,  0.5f,  0.5f, 1.0f, 0.0f), // left-top
-		VertexTex(0.5f, -0.5f,  0.5f, 1.0f, 1.0f), // left-bottom
-		VertexTex(0.5f, -0.5f, -0.5f, 0.0f, 1.0f), // right-bottom
-
+		VertexTexNormal(0.5f,  0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f), // right-top
+		VertexTexNormal(0.5f,  0.5f,  0.5f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f), // left-top
+		VertexTexNormal(0.5f, -0.5f,  0.5f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f), // left-bottom
+		VertexTexNormal(0.5f, -0.5f, -0.5f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f), // right-bottom
+				 
 		// top
-		VertexTex(-0.5f,  0.5f,  0.5f, 0.0f, 0.0f), // right-top
-		VertexTex(0.5f,  0.5f,  0.5f, 1.0f, 0.0f), // left-top
-		VertexTex(0.5f,  0.5f, -0.5f, 1.0f, 1.0f), // right-top
-		VertexTex(-0.5f,  0.5f, -0.5f, 0.0f, 1.0f), // left-top
-
+		VertexTexNormal(-0.5f,  0.5f,  0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f), // right-top
+		VertexTexNormal( 0.5f,  0.5f,  0.5f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f), // left-top
+		VertexTexNormal( 0.5f,  0.5f, -0.5f, 1.0f, 1.0f, 0.0f, 1.0f, 0.0f), // right-top
+		VertexTexNormal(-0.5f,  0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f), // left-top
+				 
 		// bottom
-		VertexTex(-0.5f, -0.5f, -0.5f, 0.0f, 0.0f), // left-bottom
-		VertexTex(0.5f, -0.5f, -0.5f, 1.0f, 0.0f), // right-bottom
-		VertexTex(0.5f, -0.5f,  0.5f, 1.0f, 1.0f), // left-bottom
-		VertexTex(-0.5f, -0.5f,  0.5f, 0.0f, 1.0f), // right-bottom
+		VertexTexNormal(-0.5f, -0.5f, -0.5f, 0.0f, 0.0f, 0.0f, -1.0f, 0.0f), // left-bottom
+		VertexTexNormal( 0.5f, -0.5f, -0.5f, 1.0f, 0.0f, 0.0f, -1.0f, 0.0f), // right-bottom
+		VertexTexNormal( 0.5f, -0.5f,  0.5f, 1.0f, 1.0f, 0.0f, -1.0f, 0.0f), // left-bottom
+		VertexTexNormal(-0.5f, -0.5f,  0.5f, 0.0f, 1.0f, 0.0f, -1.0f, 0.0f), // right-bottom
 	};
 
 	_pIndices = new UINT[_indexCount]

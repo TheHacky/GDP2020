@@ -9,12 +9,14 @@ Camera::Camera(UINT screenWidth, UINT screenHeight)
 	//float size = screenWidth / (aspect * 2 * 480);
 	//XMMATRIX m = XMMatrixOrthographicOffCenterLH(-size * screenWidth, size * screenWidth, -size * screenHeight, size * screenHeight, 0.3f, 10.0f);
 	XMStoreFloat4x4(&_projectionMatrix, m);
+
+	_position = { 0.0f, 0.0f, -3.0f };
 }
 
 void Camera::update(float dt)
 {
 	// view matrix
-	XMVECTOR pos = XMVectorSet(0.0f, 0.0f, -3.0f, 1.0f);
+	XMVECTOR pos = XMLoadFloat3(&_position);
 	XMVECTOR dir = XMVectorSet(0.0f, 0.0f, 1.0f, 1.0f);
 	XMVECTOR up = XMVectorSet(0.0f, 1.0f, 0.0f, 1.0f);
 	XMMATRIX m = XMMatrixLookToLH(pos, dir, up);

@@ -7,6 +7,7 @@
 #include "ColorShader.h"
 #include "Cube.h"
 #include "TextureShader.h"
+#include "LightingShader.h"
 
 using namespace std;
 
@@ -22,10 +23,10 @@ bool GfxSystem::init(UINT screenWidth, UINT screenHeight, HWND hWnd)
 	if (!_pMesh2->init(_pD3D->getDevice())) return false;
 	_pMesh2->setPosition(0.5f, 0.0f, 5.0f);
 
-	_pShader = new TextureShader("stone.jpg");
-	if (!_pShader->init(_pD3D->getDevice())) return false;
-
 	_pCamera = new Camera(screenWidth, screenHeight);
+	
+	_pShader = new LightingShader("stone.jpg", _pCamera);
+	if (!_pShader->init(_pD3D->getDevice())) return false;
 
 	return true;
 }

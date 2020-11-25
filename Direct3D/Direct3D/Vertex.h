@@ -25,3 +25,17 @@ struct VertexTex
 	VertexTex(float x, float y, float z, float u, float v)
 		: position(x, y, z), uv(u, v) {}
 };
+
+struct VertexTexNormal
+{
+	XMFLOAT3 position;
+	XMFLOAT2 uv;
+	XMFLOAT3 normal;
+
+	VertexTexNormal() : position(0.0f, 0.0f, 0.0f), uv(0.0f, 0.0f), normal(0.0f, 0.0f, 0.0f) {}
+	VertexTexNormal(float x, float y, float z) : position(x, y, z), uv(0.0f, 0.0f), normal(0.0f, 0.0f, 0.0f) {}
+	VertexTexNormal(float x, float y, float z, float u, float v)
+		: position(x, y, z), uv(u, v), normal(0.0f, 0.0f, 0.0f) {}
+	VertexTexNormal(float x, float y, float z, float u, float v, float nx, float ny, float nz)
+		: position(x, y, z), uv(u, v), normal(nx, ny, nz) {}
+};

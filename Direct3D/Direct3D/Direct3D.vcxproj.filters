@@ -51,6 +51,9 @@
     <ClCompile Include="TextureShader.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="LightingShader.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="System.h">
@@ -95,6 +98,9 @@
     <ClInclude Include="TextureShader.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="LightingShader.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="ColorPixelShader.hlsl">
@@ -107,6 +113,12 @@
       <Filter>Ressourcendateien</Filter>
     </FxCompile>
     <FxCompile Include="TextureVertexShader.hlsl">
+      <Filter>Ressourcendateien</Filter>
+    </FxCompile>
+    <FxCompile Include="LightingPixelShader.hlsl">
+      <Filter>Ressourcendateien</Filter>
+    </FxCompile>
+    <FxCompile Include="LightingVertexShader.hlsl">
       <Filter>Ressourcendateien</Filter>
     </FxCompile>
   </ItemGroup>

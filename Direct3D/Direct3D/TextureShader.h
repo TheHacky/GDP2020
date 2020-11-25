@@ -10,7 +10,7 @@ public:
 
 protected:
 	bool initInputLayout(ID3D11Device*, ID3DBlob*);
-	bool initMatrixBuffer(ID3D11Device*);
+	virtual bool initMatrixBuffer(ID3D11Device*);
 	bool initMainTexture(ID3D11Device*);
 	void setShaderParameters(ID3D11DeviceContext*);
 

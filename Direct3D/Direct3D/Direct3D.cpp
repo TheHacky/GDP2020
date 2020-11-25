@@ -160,7 +160,7 @@ bool Direct3D::init(UINT screenWidth, UINT screenHeight, bool vSyncEnabled, HWND
 #pragma region create rasterizer state
 	D3D11_RASTERIZER_DESC rasterizerDesc = {};
 	rasterizerDesc.FillMode = D3D11_FILL_SOLID;
-	rasterizerDesc.CullMode = D3D11_CULL_NONE; // set to BACK to save average of 50% faces to drawn
+	rasterizerDesc.CullMode = D3D11_CULL_BACK; // set to BACK to save average of 50% faces to drawn
 	rasterizerDesc.FrontCounterClockwise = false;
 	rasterizerDesc.AntialiasedLineEnable = true;
 
